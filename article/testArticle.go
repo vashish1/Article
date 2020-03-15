@@ -1,23 +1,25 @@
 package article
 
+import "testing"
+
 //TestGetAllArticles tests the articles
 func TestGetAllArticles(t *testing.T) {
-	alist := getAllArticles()
-  
+	alist := GetAllArticles()
+
 	// Check that the length of the list of articles returned is the
 	// same as the length of the global variable holding the list
-	if len(alist) != len(articleList) {
-	  t.Fail()
+	if len(alist) != len(ArticleList) {
+		t.Fail()
 	}
-  
+
 	// Check that each member is identical
 	for i, v := range alist {
-	  if v.Content != articleList[i].Content ||
-		v.ID != articleList[i].ID ||
-		v.Title != articleList[i].Title {
-  
-		t.Fail()
-		break
-	  }
+		if v.Content != ArticleList[i].Content ||
+			v.ID != ArticleList[i].ID ||
+			v.Title != ArticleList[i].Title {
+
+			t.Fail()
+			break
+		}
 	}
-  }
+}
